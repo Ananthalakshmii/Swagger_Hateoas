@@ -1,0 +1,15 @@
+Swagger -- enable automatic documentation of rest apis
+is up in the url -- localhost:8080/swagger-ui.html
+have to add 2 dependency for swagger-ui and swagger2
+@EnableSwagger2 in appln class
+add spring.mvc.pathmatch.matching-strategy=ant-path-matcher in application.properties
+
+Hateoas- Hypermedia as the engine of application state
+if we dont need to remember all the rest endpoints that the server is exposed to
+dependency-- hateoas,web
+Entity class- extends RepresentationModel<ModelClass>
+Controller - add static import to : import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
+and for whatever display item, you have to add hyperlink use:
+.add(linkTo(methodOn(Controller.class).methodName()).withRel("Message to be displayed")); 
+OR
+.add(linkTo(methodOn(Controller.class).methodName()).withSelfRel()); 
